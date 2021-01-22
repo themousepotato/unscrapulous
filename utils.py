@@ -43,7 +43,8 @@ def convert_into_csv(filenames, ext='pdf', table=[]):
 
 def download_files(file_urls, output_dir):
     '''
-    Downloads all files from a list of `file_urls`
+    Downloads all files from a list of `file_urls` and returns a mapping
+    between filenames and the corresponding file_urls
     '''
     file_sources = {}
     for file_url in file_urls:
@@ -55,6 +56,16 @@ def download_files(file_urls, output_dir):
                 f.write(resp.content)
 
     return file_sources
+
+def extract_zip(filename, output_dir):
+    '''
+    Extracts the zipfile and returns the paths of files it contains
+    '''
+    with zipfile.ZipFile(filename, 'r') as f:
+        f.extractall(output_dir)
+        paths = f.namelist()
+
+    return paths
 
 def get_soup(source, data={}, cookies={}, verify=False):
     '''

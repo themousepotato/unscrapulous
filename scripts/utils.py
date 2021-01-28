@@ -19,24 +19,27 @@ headers = {
            'Accept-Encoding': 'gzip, deflate'
            }
 
-def convert_into_csv(filenames, ext='pdf', table=[]):
+def convert_into_csv(filenames, output_dir, ext='pdf', table=[]):
     '''
     Converts `pdf/xls/xlsx` files to `csv`.
     Also writes a `csv` file from a list
     '''
     if ext == 'pdf':
         for filename in filenames:
+            filename = os.path.join(output_dir, filename)
             tabula.convert_into(filename, filename.replace(ext, 'csv'))
 
-    else if ext in ['xls', 'xlsx']:
+    elif ext in ['xls', 'xlsx']:
         for filename in filenames:
+            filename = os.path.join(output_dir, filename)
             excel_file = pd.read_excel(filename)
             excel_file.to_csv(filename.replace(ext, 'csv'),
                               index=None,
                               header=True)
 
-    else if len(table) != 0:
+    elif len(table) != 0:
         for filename in filenames:
+            filename = os.path.join(output_dir, filename)
             with open(filename, 'w') as f:
                 writer = csv.writer(f)
                 writer.writerows(table)

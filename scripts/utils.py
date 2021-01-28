@@ -41,6 +41,13 @@ def convert_into_csv(filenames, ext='pdf', table=[]):
                 writer = csv.writer(f)
                 writer.writerows(table)
 
+def create_dir(dirpath):
+    '''
+    Create a directory if not exists
+    '''
+    if not os.path.exists(dirpath):
+        os.makedirs(dirpath)
+
 def download_files(file_urls, output_dir):
     '''
     Downloads all files from a list of `file_urls` and returns a mapping

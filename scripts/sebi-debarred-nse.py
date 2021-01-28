@@ -2,7 +2,6 @@
 #-*- coding: utf-8 -*-
 
 from utils import *
-import csv
 import os
 import pandas as pd
 import shutil

@@ -31,7 +31,7 @@
 | SFIO Proclaimed Offenders                             | B             | <ul><li>- [x] Scrape from source</li><li>- [ ] Generate fields for global csv</li></ul> |
 | RBI Suit File                                         | B             | <ul><li>- [ ] Scrape from source</li><li>- [ ] Generate fields for global csv</li></ul> |
 | IRDA Blacklisted                                      | B             | <ul><li>- [x] Complete</li></ul>|
-| Income Tax Defaulters                                 | B             | <ul><li>- [x] Scrape from source</li><li>- [ ] Generate fields for global csv</li></ul> |
+| Income Tax Defaulters                                 | B             | <ul><li>- [x] Complete</li></ul> |
 | Wildlife Crime Convicts                               | B             | <ul><li>- [x] Scrape from source</li><li>- [ ] Generate fields for global csv</li></ul> |
 | MCA Director Defaulter List                           | B             | <ul><li>- [x] Scrape from source</li><li>- [ ] Generate fields for global csv</li></ul> |
 | MCA Director Disqualified List                        | B             | <ul><li>- [x] Scrape from source</li><li>- [ ] Generate fields for global csv</li></ul> |

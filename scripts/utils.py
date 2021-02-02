@@ -123,7 +123,7 @@ def get_json_response(source, data={}, cookies={}, verify=False):
 
     return resp.json()
 
-def write_global_csv(filename, source, alias):
+def write_global_csv(filename, source, alias, fillna=False):
     '''
     Writes a csv file with the following global attributes:
     1. PAN
@@ -133,7 +133,9 @@ def write_global_csv(filename, source, alias):
     5. Meta - a JSON encoded field of whatever fields each source provides
     '''
     df = pd.read_csv(filename, sep=',', dtype=object, error_bad_lines=False)
-    df.fillna(method='ffill', inplace=True)
+    if fillna:
+        df.fillna(method='ffill', inplace=True)
+
     out_df = pd.DataFrame(columns=['PAN', 'Name', 'AddedDate', 'Source', 'Meta'])
     for k, v in alias.items():
         out_df[k] = df[v]

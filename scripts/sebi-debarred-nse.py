@@ -25,7 +25,7 @@ def main():
         'Name': 'Entity / Individual Name',
         'AddedDate': 'Order Date'
     }
-    write_global_csv(filename=out_filename, source=SOURCE, alias=alias)
+    write_global_csv(filename=out_filename, source=SOURCE, alias=alias, fillna=True)
     shutil.rmtree(OUTPUT_DIR)
 
 if __name__ == '__main__':

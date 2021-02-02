@@ -16,6 +16,7 @@ def main():
     }
     params = ['__VIEWSTATE', '__VIEWSTATEGENERATOR', '__EVENTTARGET', '__EVENTARGUMENT', '__EVENTVALIDATION']
 
+    create_dir(OUTPUT_DIR)
     soup = get_soup(SOURCE)
     for param in params:
         site_data[param] = soup.find('input', attrs={'id': param})['value']

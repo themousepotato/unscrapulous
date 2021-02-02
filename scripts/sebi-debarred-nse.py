@@ -3,12 +3,11 @@
 
 from utils import *
 import os
-import pandas as pd
 import shutil
 
 SOURCE = 'https://www.nseindia.com/regulations/member-sebi-debarred-entities'
 OUTPUT_DIR = os.path.join(os.getcwd(), 'files/sebi-debarred-nse')
-OUTPUT_FILE = 'files/sebi-debarred-nse.csv'
+OUTPUT_FILE = 'sebi-debarred-nse.csv'
 
 def main():
     create_dir(OUTPUT_DIR)
@@ -19,16 +18,14 @@ def main():
     convert_into_csv(filenames=filenames, output_dir=OUTPUT_DIR, ext='xls')
 
     filename = os.path.join(OUTPUT_DIR, filenames[0].replace('xls', 'csv'))
-    df = pd.read_csv(filename, sep=',', dtype=object, error_bad_lines=False)
-    df.fillna(method='ffill', inplace=True)
-    out_df = pd.DataFrame(columns=['PAN', 'Name', 'AddedDate', 'Source', 'Meta'])
-    out_df['PAN'] = df['PAN']
-    out_df['Name'] = df['Entity / Individual Name']
-    out_df['AddedDate'] = df['Order Date']
-    out_df['Source'] = SOURCE
-    out_df['Meta'] = pd.Series(df.to_json(orient ='records', lines=True).split('\n'))
-    out_df.to_csv(OUTPUT_FILE, sep=',', encoding='utf-8', index=None)
-
+    out_filename = os.path.join(os.getcwd(), 'files', OUTPUT_FILE)
+    shutil.move(filename, out_filename)
+    alias = {
+        'PAN': 'PAN',
+        'Name': 'Entity / Individual Name',
+        'AddedDate': 'Order Date'
+    }
+    write_global_csv(filename=out_filename, source=SOURCE, alias=alias)
     shutil.rmtree(OUTPUT_DIR)
 
 if __name__ == '__main__':

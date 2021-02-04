@@ -35,7 +35,7 @@ def convert_into_csv(filenames, output_dir, ext='pdf', table=[]):
     if ext == 'pdf':
         for filename in filenames:
             filename = os.path.join(output_dir, filename)
-            tabula.convert_into(filename, filename.replace(ext, 'csv'))
+            tabula.convert_into(filename, filename.replace(ext, 'csv'), pages='all')
 
     elif ext in ['xls', 'xlsx']:
         for filename in filenames:

@@ -92,7 +92,7 @@ def get_soup(source, method='GET', data={}, cookies={}, verify=False):
 
     return soup
 
-def get_table(soup, attrs={}, header=[]):
+def get_table(soup, attrs={}, header=[], omit_cols=[]):
     '''
     Finds table from `BeautifulSoup` object and returns a python list
     '''
@@ -103,14 +103,17 @@ def get_table(soup, attrs={}, header=[]):
         out_rows.append(header)
     else:
         header = table.find_all('th')
+        header = [th for th in header if header.index(th) not in omit_cols]
         if header:
             out_rows.append([th.text for th in header])
             i = 1
 
     for row in table.find_all('tr')[i:]:
         out_row = []
-        for col in row.find_all('td'):
-            out_row.append(col.text)
+        cols = row.find_all('td')
+        for col in cols:
+            if cols.index(col) not in omit_cols:
+                out_row.append(col.text)
         out_rows.append(out_row)
 
     return out_rows

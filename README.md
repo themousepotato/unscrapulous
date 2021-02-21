@@ -35,7 +35,7 @@
 | Wildlife Crime Convicts                               | B             | <ul><li>- [x] Complete</li></ul> |
 | MCA Director Defaulter List                           | B             | <ul><li>- [x] Complete</li></ul> |
 | MCA Director Disqualified List                        | B             | <ul><li>- [x] Scrape from source</li><li>- [ ] Generate fields for global csv</li></ul> |
-| MCX Secretaries Defaulter List                        | B             | <ul><li>- [x] Scrape from source</li><li>- [ ] Generate fields for global csv</li></ul> |
+| MCX Secretaries Defaulter List                        | B             | <ul><li>- [x] Complete</li></ul> |
 | NCLT (IBBI)                                           | B             | <ul><li>- [ ] Scrape from source</li><li>- [ ] Generate fields for global csv</li></ul> |
 | MCA Company Defaulters List                           | B             | <ul><li>- [x] Complete</li></ul> |
 | European Union Sanctions                              | B             | Couldn't find source |

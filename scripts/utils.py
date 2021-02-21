@@ -122,7 +122,14 @@ def get_table(soup, attrs={}, header=[], omit_cols=[]):
         for col in cols:
             if cols.index(col) not in omit_cols:
                 out_row.append(col.text)
-        out_rows.append(out_row)
+                if col.find('a'):
+                    out_row.append(col.find('a')['href'])
+
+        # For MCX Secretaries Defaulter List
+        if out_row[4] == '\n\n\n\n':
+            out_rows.append([out_row[0], out_row[1], out_row[2], out_row[3], out_row[5]])
+        else:
+            out_rows.append(out_row)
 
     return out_rows
 

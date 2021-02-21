@@ -14,13 +14,15 @@ def main():
     file_urls = [PARENT_SOURCE + a['href'] for a in soup.find_all('a') if a.text.startswith('Link to view')]
     filenames = download_files(file_urls=file_urls, output_dir=OUTPUT_DIR).keys()
     convert_into_csv(filenames=filenames, output_dir=OUTPUT_DIR, ext='pdf')
+    write_added_date(filenames=filenames)
     delete_files(filenames)
     filenames = [filename.replace('pdf', 'csv') for filename in filenames]
     merge_csvs(filenames=filenames, output_filename=os.path.join(OUTPUT_DIR, OUTPUT_FILE))
     delete_files(filenames)
 
     alias = {
-        'Name': 'Company Name'
+        'Name': 'Company Name',
+        'AddedDate': 'AddedDate'
     }
     write_global_csv(filename=os.path.join(OUTPUT_DIR, OUTPUT_FILE), source=SOURCE, alias=alias)
 

@@ -3,6 +3,7 @@
 
 import csv
 import os
+import PyPDF2 as pypdf
 import pandas as pd
 import requests as req
 import tabula
@@ -47,7 +48,7 @@ def convert_into_csv(filenames, output_dir, ext='pdf', table=[]):
 
 def create_dir(dirpath):
     '''
-    Create a directory if not exists
+    Creates a directory if not exists
     '''
     if not os.path.exists(dirpath):
         os.makedirs(dirpath)
@@ -135,10 +136,25 @@ def get_json_response(source, data={}, cookies={}, verify=False):
 
 def merge_csvs(filenames, output_filename):
     '''
-    Merge csv files with same format
+    Merges csv files with same format
     '''
     df = pd.concat((pd.read_csv(f, header=0) for f in filenames))
     df.to_csv(output_filename)
+
+def write_added_date(filenames):
+    '''
+    Writes `AddedDate` field to the csv files which tabula missed to parse from
+    outside the table
+    '''
+    for filename in filenames:
+        pdf_obj = open(filename, 'rb')
+        pdf_reader = pypdf.PdfFileReader(pdf_obj)
+        page_obj  = pdf_reader.getPage(0)
+        date = page_obj.extractText().split()[2]
+        csv_filename = filename.replace('pdf', 'csv')
+        df = pd.read_csv(csv_filename)
+        df['AddedDate'] = date
+        df.to_csv(csv_filename, index=False)
 
 def write_global_csv(filename, source, alias, fillna=False):
     '''

@@ -17,7 +17,7 @@
 | NMCE Suspended Members                                | A             | Couldn't find source |
 | NSE Defaulted Members                                 | A             | <ul><li>- [x] Scrape from source</li><li>- [ ] Generate fields for global csv</li></ul> |
 | NSE Expelled Members                                  | A             | <ul><li>- [x] Scrape from source</li><li>- [ ] Generate fields for global csv</li></ul> |
-| NSE Regulatory Defaulting Clients                     | A             | <ul><li>- [x] Scrape from source</li><li>- [ ] Generate fields for global csv</li></ul> |
+| NSE Regulatory Defaulting Clients                     | A             | <ul><li>- [x] Complete</li></ul> |
 | UAPA                                                  | A             | <ul><li>- [ ] Scrape from source</li><li>- [ ] Generate fields for global csv</li></ul> |
 | UNSC_1267/UNSC Consolidated List                      | A             | <ul><li>- [x] Scrape from source</li><li>- [ ] Generate fields for global csv</li></ul> |
 | UNSC_1988                                             | A             | <ul><li>- [x] Scrape from source</li><li>- [ ] Generate fields for global csv</li></ul> |

@@ -37,7 +37,7 @@
 | MCA Director Disqualified List                        | B             | <ul><li>- [x] Scrape from source</li><li>- [ ] Generate fields for global csv</li></ul> |
 | MCX Secretaries Defaulter List                        | B             | <ul><li>- [x] Scrape from source</li><li>- [ ] Generate fields for global csv</li></ul> |
 | NCLT (IBBI)                                           | B             | <ul><li>- [ ] Scrape from source</li><li>- [ ] Generate fields for global csv</li></ul> |
-| MCA Company Defaulters List                           | B             | <ul><li>- [x] Scrape from source</li><li>- [ ] Generate fields for global csv</li></ul> |
+| MCA Company Defaulters List                           | B             | <ul><li>- [x] Complete</li></ul> |
 | European Union Sanctions                              | B             | Couldn't find source |
 | MCA Companies Struck Off list                         | B             | <ul><li>- [ ] Scrape from source</li><li>- [ ] Generate fields for global csv</li></ul> |
 | Interpol                                              | B             | Couldn't find source |

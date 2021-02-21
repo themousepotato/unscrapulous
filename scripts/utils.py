@@ -52,6 +52,13 @@ def create_dir(dirpath):
     if not os.path.exists(dirpath):
         os.makedirs(dirpath)
 
+def delete_files(filenames):
+    '''
+    Deletes files from a list of paths
+    '''
+    for filename in filenames:
+        os.remove(filename)
+
 def download_files(file_urls, output_dir):
     '''
     Downloads all files from a list of `file_urls` and returns a mapping
@@ -60,10 +67,10 @@ def download_files(file_urls, output_dir):
     file_sources = {}
     for file_url in file_urls:
         resp = req.get(file_url, headers=headers, verify=False)
-        filename = file_url.split('/')[-1] # TODO: use regex
+        filename = os.path.join(output_dir, file_url.split('/')[-1]) # TODO: use regex
         if resp.status_code == 200:
             file_sources[filename] = file_url
-            with open(os.path.join(output_dir, filename), 'wb') as f:
+            with open(filename, 'wb') as f:
                 f.write(resp.content)
 
     return file_sources
@@ -125,6 +132,13 @@ def get_json_response(source, data={}, cookies={}, verify=False):
     resp = req.post(source, data=data, headers=headers, cookies=cookies, verify=verify)
 
     return resp.json()
+
+def merge_csvs(filenames, output_filename):
+    '''
+    Merge csv files with same format
+    '''
+    df = pd.concat((pd.read_csv(f, header=0) for f in filenames))
+    df.to_csv(output_filename)
 
 def write_global_csv(filename, source, alias, fillna=False):
     '''

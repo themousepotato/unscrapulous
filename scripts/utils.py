@@ -7,6 +7,7 @@ import PyPDF2 as pypdf
 import pandas as pd
 import requests as req
 import tabula
+import xml.etree.ElementTree as ET
 import zipfile
 
 from bs4 import BeautifulSoup
@@ -100,10 +101,25 @@ def get_soup(source, method='GET', data={}, cookies={}, verify=False):
 
     return soup
 
-def get_table(soup, attrs={}, header=[], omit_cols=[]):
+def get_table(soup, attrs={}, header=[], omit_cols=[], from_xml=False):
     '''
     Finds table from `BeautifulSoup` object and returns a python list
     '''
+    if from_xml:
+        table = soup.find_all(attrs['xml_parent'])
+        header = [th for th in get_xml_tags(str(table[0]))[1:] if th != 'value']
+        out_rows = [header]
+        for row in table:
+            out_row = []
+            for th in header:
+                try:
+                    col = row.find(th).text
+                except AttributeError:
+                    col = ''
+                out_row.append(col)
+            out_rows.append(out_row)
+        return out_rows
+
     table = soup.find('table', attrs=attrs)
     out_rows = []
     i = 0
@@ -140,6 +156,15 @@ def get_json_response(source, data={}, cookies={}, verify=False):
     resp = req.post(source, data=data, headers=headers, cookies=cookies, verify=verify)
 
     return resp.json()
+
+def get_xml_tags(string):
+    '''
+    Returns all tags from the given xml string
+    '''
+    xml_tree = ET.fromstring(string)
+    tags = [elem.tag for elem in xml_tree.iter()]
+
+    return tags
 
 def merge_csvs(filenames, output_filename):
     '''

@@ -198,6 +198,7 @@ def write_global_csv(filename, source, alias, fillna=False):
     5. Meta - a JSON encoded field of whatever fields each source provides
     '''
     df = pd.read_csv(filename, sep=',', dtype=object, error_bad_lines=False)
+    df = df.replace('\r', ' ', regex=True)
     if fillna:
         df.fillna(method='ffill', inplace=True)
 

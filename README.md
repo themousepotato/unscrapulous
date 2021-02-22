@@ -28,7 +28,7 @@
 |                                                       |               |               |
 | MCA Proclaimed Offenders (Ind)                        | B             | <ul><li>- [x] Scrape from source</li><li>- [ ] Generate fields for global csv</li></ul> |
 | SFIO Convicted                                        | B             | <ul><li>- [x] Scrape from source</li><li>- [ ] Generate fields for global csv</li></ul> |
-| SFIO Proclaimed Offenders                             | B             | <ul><li>- [x] Scrape from source</li><li>- [ ] Generate fields for global csv</li></ul> |
+| SFIO Proclaimed Offenders                             | B             | <ul><li>- [x] Complete</li></ul> |
 | RBI Suit File                                         | B             | <ul><li>- [ ] Scrape from source</li><li>- [ ] Generate fields for global csv</li></ul> |
 | IRDA Blacklisted                                      | B             | <ul><li>- [x] Complete</li></ul>|
 | Income Tax Defaulters                                 | B             | <ul><li>- [x] Complete</li></ul> |

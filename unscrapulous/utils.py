@@ -139,10 +139,13 @@ def get_table(soup, attrs={}, header=[], omit_cols=[], from_xml=False):
             if cols.index(col) not in omit_cols:
                 out_row.append(col.text)
                 if col.find('a'):
-                    out_row.append(col.find('a')['href'])
+                    try:
+                        out_row.append(col.find('a')['href'])
+                    except KeyError:
+                        pass
 
         # For MCX Secretaries Defaulter List
-        if out_row[4] == '\n\n\n\n':
+        if len(out_row) > 4 and out_row[4] == '\n\n\n\n':
             out_rows.append([out_row[0], out_row[1], out_row[2], out_row[3], out_row[5]])
         else:
             out_rows.append(out_row)
@@ -185,6 +188,8 @@ def write_added_date(filenames):
         date = page_obj.extractText().split()[2]
         csv_filename = filename.replace('pdf', 'csv')
         df = pd.read_csv(csv_filename)
+        df = df.replace('\r', ' ', regex=True)
+        df = df.replace('\n', ' ', regex=True)
         df['AddedDate'] = date
         df.to_csv(csv_filename, index=False)
 
@@ -199,6 +204,7 @@ def write_global_csv(filename, source, alias, fillna=False):
     '''
     df = pd.read_csv(filename, sep=',', dtype=object, error_bad_lines=False)
     df = df.replace('\r', ' ', regex=True)
+    df = df.replace('\n', ' ', regex=True)
     if fillna:
         df.fillna(method='ffill', inplace=True)
 

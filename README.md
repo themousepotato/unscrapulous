@@ -1,4 +1,7 @@
 # Unscrapulous - scrape unscrupulous entities
+![artwork](images/logo.png "Agent X who populates the database with unscrupulous entities")
+
+*Artwork by [@xypnox](https://github.com/xypnox/)*
 
 ## Motivation
 Various regulatory bodies publish list of people/entities who have violated laws or regulations. The primary identifier for these records are their PANs. Banks, brokers are supposed to not provide services to these entities, identified by their PANs. Unscrapulous is a python utility which has scrapers to create a huge database of such people/entities.
@@ -68,4 +71,5 @@ $ poetry shell
 | [United Kingdom Sanction List](https://www.gov.uk/government/publications/the-uk-sanctions-list)                          | B             | <ul><li>- [ ] ods/odt -> csv</li><li>- [ ] Generate fields for global csv</li></ul> |
 | OFAC                                                  | B             | Couldn't find source |
 | Local PEP - Only India PEP                            | B             | Couldn't find source |
+
 

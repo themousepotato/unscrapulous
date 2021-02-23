@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "unscrapulous"
+version = "0.1.0"
+description = "A utility that scrapes lists of unscrupulous entities (barred from doing financial business) published by various legal institutions"
+authors = ["Navaneeth Suresh <navaneeths1998@gmail.com>"]
+license = "MIT License"
+
+[tool.poetry.dependencies]
+python = ">=3.7.1"
+PyPDF2 = "^1.26.0"
+requests = "^2.25.1"
+pandas = "^1.2.2"
+pytest = "^6.2.2"
+bs4 = "^0.0.1"
+lxml = "^4.6.2"
+tabula-py = "^2.2.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

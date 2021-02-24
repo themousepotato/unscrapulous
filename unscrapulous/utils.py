@@ -228,6 +228,9 @@ def write_global_csv(filename, source, alias, fillna=False):
     # Remove multiple headers
     # For ex: in MCX Action AP
     df = df[df.ne(df.columns).any(1)]
+    if alias:
+        field = list(alias.values())[0]
+        df = df[df[field] != field]
 
     if fillna:
         df.fillna(method='ffill', inplace=True)

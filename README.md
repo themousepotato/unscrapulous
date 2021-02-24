@@ -33,7 +33,7 @@ $ poetry shell
 | [BSE Defaulter and Expelled Members](https://www.bseindia.com/static/members/List_defaulters_Expelled_members.aspx)                    | A             | <ul><li>- [x] Scrape from source</li><li>- [ ] Generate fields for global csv</li></ul> |
 | BSE Regulatory Defaulting Clients                     | A             | Couldn't find source |
 | [ICEX Defaulter Members](https://www.icexindia.com/membership/expelled-defaulter-surrendered-members)                                | A             | <ul><li>- [x] Complete</li></ul> |
-| [ICEX Expelled Members](https://www.icexindia.com/membership/expelled-defaulter-surrendered-members)                                 | A             | <ul><li>- [x] Scrape from source</li><li>- [ ] Generate fields for global csv</li></ul> |
+| [ICEX Expelled Members](https://www.icexindia.com/membership/expelled-defaulter-surrendered-members)                                 | A             | <ul><li>- [x] Complete</li></ul> |
 | [MCX Action AP](https://www.mcxindia.com/membership/notice-board/notice-board-disciplinary-action)                                         | A             | <ul><li>- [x] Complete</li></ul> |
 | [MCX Defaulter Members](https://www.mcxindia.com/Investor-Services/defaulters/list-of-clients-of-the-defaulter-members-apportioned-amount-not-claimed)                                 | A             | <ul><li>- [x] Complete</li></ul> |
 | [MSE Arbitral Awards](https://www.msei.in/investors/list-of-arbitrators)                                   | A             | <ul><li>- [x] Scrape from source</li><li>- [ ] Generate fields for global csv</li></ul> |

@@ -213,11 +213,14 @@ def write_global_csv(filename, source, alias, fillna=False):
 
     # Change columns to second row if first row is a single cell text
     # For ex: in SFIO convicted
-    i = len(df.columns[~df.columns.str.contains('unnamed',case = False)])
-    j = len(df.iloc[0][~df.iloc[0].str.contains('unnamed',case = False)])
-    if j > i:
-        df.columns = df.iloc[0]
-        df = df.iloc[1:]
+    try:
+        i = len(df.columns[~df.columns.str.contains('unnamed',case = False)])
+        j = len(df.iloc[0][~df.iloc[0].str.contains('unnamed',case = False)])
+        if j > i:
+            df.columns = df.iloc[0]
+            df = df.iloc[1:]
+    except TypeError:
+        pass
 
     if fillna:
         df.fillna(method='ffill', inplace=True)

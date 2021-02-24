@@ -50,7 +50,7 @@ $ poetry shell
 | [UNSC_1988](https://www.un.org/securitycouncil/sanctions/1988/materials)                                             | A             | <ul><li>- [x] Complete</li></ul> |
 | UNSC_2140                                             | A             | Couldn't find source |
 | UNSC_2270                                             | A             | Couldn't find source |
-| [SEBI Debarred - BSE](https://www.bseindia.com/investors/debent.aspx)                                   | A             | <ul><li>- [x] Scrape from source</li><li>- [ ] Generate fields for global csv</li></ul> |
+| [SEBI Debarred - BSE](https://www.bseindia.com/investors/debent.aspx)                                   | A             | <ul><li>- [x] Complete</li></ul> |
 | [SEBI Debarred - NSE](https://www.nseindia.com/regulations/member-sebi-debarred-entities)                                   | A             | <ul><li>- [x] Complete</li></ul>  |
 |                                                       |               |               |
 | [MCA Proclaimed Offenders (Ind)](http://www.mca.gov.in/MinistryV2/proclaimedoffenders.html)                        | B             | <ul><li>- [x] Scrape from source</li><li>- [ ] Generate fields for global csv</li></ul> |

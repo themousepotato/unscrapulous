@@ -37,7 +37,12 @@ def convert_into_csv(filenames, output_dir, ext='pdf', table=[]):
     if ext == 'pdf':
         for filename in filenames:
             filename = os.path.join(output_dir, filename)
-            tabula.convert_into(filename, filename.replace(ext, 'csv'), pages='all')
+            tabula.convert_into(
+                filename,
+                filename.replace(ext, 'csv'),
+                lattice=True,
+                pages='all'
+            )
 
     elif ext in ['xls', 'xlsx']:
         for filename in filenames:
@@ -205,6 +210,15 @@ def write_global_csv(filename, source, alias, fillna=False):
     df = pd.read_csv(filename, sep=',', dtype=object, error_bad_lines=False)
     df = df.replace('\r', ' ', regex=True)
     df = df.replace('\n', ' ', regex=True)
+
+    # Change columns to second row if first row is a single cell text
+    # For ex: in SFIO convicted
+    i = len(df.columns[~df.columns.str.contains('unnamed',case = False)])
+    j = len(df.iloc[0][~df.iloc[0].str.contains('unnamed',case = False)])
+    if j > i:
+        df.columns = df.iloc[0]
+        df = df.iloc[1:]
+
     if fillna:
         df.fillna(method='ffill', inplace=True)
 

@@ -54,7 +54,7 @@ $ poetry shell
 | [SEBI Debarred - NSE](https://www.nseindia.com/regulations/member-sebi-debarred-entities)                                   | A             | <ul><li>- [x] Complete</li></ul>  |
 |                                                       |               |               |
 | [MCA Proclaimed Offenders (Ind)](http://www.mca.gov.in/MinistryV2/proclaimedoffenders.html)                        | B             | <ul><li>- [x] Scrape from source</li><li>- [ ] Generate fields for global csv</li></ul> |
-| [SFIO Convicted](https://sfio.nic.in/sites/default/files/pdf/Conviction%20Matters%20from%202003.pdf)                                        | B             | <ul><li>- [x] Scrape from source</li><li>- [ ] Generate fields for global csv</li></ul> |
+| [SFIO Convicted](https://sfio.nic.in/sites/default/files/pdf/Conviction%20Matters%20from%202003.pdf)                                        | B             | <ul><li>- [x] Complete</li></ul> |
 | [SFIO Proclaimed Offenders](https://sfio.nic.in/sites/default/files/pdf/Proclaimed%20Offenders%20Details%20DK%20Sabat.pdf)                             | B             | <ul><li>- [x] Complete</li></ul> |
 | [RBI Suit File](https://suit.cibil.com/)                                         | B             | <ul><li>- [ ] Scrape from source</li><li>- [ ] Generate fields for global csv</li></ul> |
 | [IRDA Blacklisted](https://agencyportal.irdai.gov.in/PublicAccess/BlackListedAgent.aspx)                                      | B             | <ul><li>- [x] Complete</li></ul>|

@@ -225,6 +225,10 @@ def write_global_csv(filename, source, alias, fillna=False):
     except TypeError:
         pass
 
+    # Remove multiple headers
+    # For ex: in MCX Action AP
+    df = df[df.ne(df.columns).any(1)]
+
     if fillna:
         df.fillna(method='ffill', inplace=True)
 

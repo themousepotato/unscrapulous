@@ -157,11 +157,14 @@ def get_table(soup, attrs={}, header=[], omit_cols=[], from_xml=False):
 
     return out_rows
 
-def get_json_response(source, data={}, cookies={}, verify=False):
+def get_json_response(source, data={}, cookies={}, verify=False, method='POST'):
     '''
     Returns the `json` response of a request
     '''
-    resp = req.post(source, data=data, headers=headers, cookies=cookies, verify=verify)
+    if method == 'GET':
+        resp = req.get(source, data=data, headers=headers, cookies=cookies, verify=verify)
+    elif method == 'POST':
+        resp = req.post(source, data=data, headers=headers, cookies=cookies, verify=verify)
 
     return resp.json()
 

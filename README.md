@@ -43,7 +43,7 @@ $ poetry shell
 | NMCE Expelled Members                                 | A             | Couldn't find source |
 | NMCE Suspended Members                                | A             | Couldn't find source |
 | [NSE Defaulted Members](https://www1.nseindia.com/invest/content/defaulter_expld_memb.htm)                                 | A             | <ul><li>- [x] Scrape from source</li><li>- [ ] Generate fields for global csv</li></ul> |
-| [NSE Expelled Members](https://www1.nseindia.com/invest/content/defaulter_expld_memb.htm)                                  | A             | <ul><li>- [x] Scrape from source</li><li>- [ ] Generate fields for global csv</li></ul> |
+| [NSE Expelled Members](https://www1.nseindia.com/invest/content/defaulter_expld_memb.htm)                                  | A             | <ul><li>- [x] Complete</li></ul> |
 | [NSE Regulatory Defaulting Clients](https://www.nseindia.com/regulations/exchange-defaulting-clients)                     | A             | <ul><li>- [x] Complete</li></ul> |
 | [UAPA](https://www.icsi.edu/uapa/)                                                  | A             | <ul><li>- [ ] Scrape from source</li><li>- [ ] Generate fields for global csv</li></ul> |
 | [UNSC_1267/UNSC Consolidated List](https://www.un.org/securitycouncil/content/un-sc-consolidated-list)                      | A             | <ul><li>- [x] Complete</li></ul> |

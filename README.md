@@ -29,7 +29,8 @@ $ poetry shell
 $ ./unscrapulous.py --config=config.toml --output=output.csv
 ```
 
-`config.toml` has the following format:
+## Config
+The `config.toml` file has the following format:
 ```toml
 [scrapers]
 arbitration-awards-bse = false

@@ -177,12 +177,15 @@ def get_xml_tags(string):
 
     return tags
 
-def merge_csvs(filenames, output_filename):
+def merge_csvs(filenames, output_filename, delete=False):
     '''
     Merges csv files with same format
     '''
     df = pd.concat((pd.read_csv(f, header=0) for f in filenames))
     df.to_csv(output_filename, sep=',', encoding='utf-8', index=None)
+
+    if delete:
+        delete_files(filenames)
 
 def write_added_date(filenames):
     '''

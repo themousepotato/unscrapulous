@@ -25,7 +25,7 @@ def main():
         call(['python', filename + '.py'])
 
     csv_files = [os.path.join('files', f) for f in os.listdir('files') if f.endswith('.csv')]
-    merge_csvs(filenames=csv_files, output_filename=output_filename)
+    merge_csvs(filenames=csv_files, output_filename=output_filename, delete=True)
 
 if __name__ == '__main__':
     main()

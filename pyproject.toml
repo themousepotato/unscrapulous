@@ -16,6 +16,8 @@ lxml = "^4.6.2"
 tabula-py = "^2.2.0"
 openpyxl = "^3.0.6"
 xlrd = "^2.0.1"
+argparse = "^1.4.0"
+toml = "^0.10.2"
 
 [tool.poetry.dev-dependencies]
 

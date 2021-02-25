@@ -24,6 +24,42 @@ $ poetry install
 $ poetry shell
 ```
 
+## Usage
+```bash
+$ ./unscrapulous.py --config=config.toml --output=output.csv
+```
+
+`config.toml` has the following format:
+```toml
+[scrapers]
+arbitration-awards-bse = false
+arbitration-awards-nse = false
+bse-defaulter-and-expelled-members = false
+icex-defaulter-members = false
+icex-expelled-members  = false
+income-tax-defaulters = false
+irda-blacklisted = false
+mca-company-defaulter-list = false
+mca-director-defaulter-list = false
+mca-director-disqualified-list = false
+mca-proclaimed-offenders-ind = false
+mcx-action-ap = false
+mcx-defaulter-members = false
+mcx-secretaries-defaulter-list = false
+mse-arbitral-awards = false
+ncdex-suspended-defaulted-expelled-debarred-members = false
+nse-defaulted-members = false
+nse-expelled-members = false
+nse-regulatory-defaulting-clients = false
+sebi-debarred-bse = false
+sebi-debarred-nse = false
+sfio-convicted = true
+sfio-proclaimed-offenders = false
+unsc-1988 = false
+unsc-consolidated-list = false
+wildlife-crime-convicts = true
+```
+
 ## Roadmap
 | Source                                                | Category      | Status        |
 | ----------------------------------------------------- |:-------------:| :-------------|

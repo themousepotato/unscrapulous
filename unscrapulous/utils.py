@@ -182,7 +182,7 @@ def merge_csvs(filenames, output_filename):
     Merges csv files with same format
     '''
     df = pd.concat((pd.read_csv(f, header=0) for f in filenames))
-    df.to_csv(output_filename)
+    df.to_csv(output_filename, sep=',', encoding='utf-8', index=None)
 
 def write_added_date(filenames):
     '''

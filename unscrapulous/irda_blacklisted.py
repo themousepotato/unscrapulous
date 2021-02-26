@@ -1,7 +1,7 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 
-from utils import *
+from unscrapulous.utils import *
 import datetime
 
 SOURCE = 'https://agencyportal.irdai.gov.in/PublicAccess/BlackListedAgent.aspx'

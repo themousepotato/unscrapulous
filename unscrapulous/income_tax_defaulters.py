@@ -1,7 +1,7 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 
-from utils import *
+from unscrapulous.utils import *
 
 SOURCE = 'http://office.incometaxindia.gov.in/administration/_layouts/15/inplview.aspx?List={5A26177B-D7A0-4251-843D-5E6C0B3C3DF2}&View={D8DD9754-8FD1-4D72-9908-727646E99CA0}&ViewCount=450&IsXslView=TRUE&IsCSR=TRUE&Paged=TRUE&p_ID='
 FILE_URL = 'http://office.incometaxindia.gov.in/administration/Lists/Tax%20Defaulters/AllItems.aspx'

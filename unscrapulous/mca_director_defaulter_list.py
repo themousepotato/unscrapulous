@@ -1,12 +1,12 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 
-from utils import *
+from unscrapulous.utils import *
 
 PARENT_SOURCE = 'http://www.mca.gov.in'
-SOURCE = 'http://www.mca.gov.in/MinistryV2/defaultercompanieslist.html'
+SOURCE = 'http://www.mca.gov.in/MinistryV2/defaulterdirectorslist.html'
 OUTPUT_DIR = '/tmp/unscrapulous/files'
-OUTPUT_FILE = 'mca-company-defaulter-list.csv'
+OUTPUT_FILE = 'mca-director-defaulter-list.csv'
 
 def main():
     create_dir(OUTPUT_DIR)
@@ -21,7 +21,7 @@ def main():
     delete_files(filenames)
 
     alias = {
-        'Name': 'Company Name',
+        'Name': 'Name',
         'AddedDate': 'AddedDate'
     }
     write_global_csv(filename=os.path.join(OUTPUT_DIR, OUTPUT_FILE), source=SOURCE, alias=alias)

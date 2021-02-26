@@ -1,17 +1,15 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 
-from utils import *
+from unscrapulous.utils import *
 
-SOURCE = 'https://www.un.org/securitycouncil/content/un-sc-consolidated-list'
+SOURCE = 'https://scsanctions.un.org/taliban/'
 OUTPUT_DIR = '/tmp/unscrapulous/files'
-OUTPUT_FILE = 'unsc-consolidated-list.csv'
+OUTPUT_FILE = 'unsc-1988-list.csv'
 
 def main():
     create_dir(OUTPUT_DIR)
     soup = get_soup(SOURCE)
-    file_url = [link['href'] for link in soup.find_all('a', {'class' : 'documentlinks uw-link-btn'}) if 'xml' in link['href']][0]
-    soup = get_soup(file_url)
     filenames = [OUTPUT_FILE.replace('list','individuals'), OUTPUT_FILE.replace('list', 'entities')]
     for i, parent in enumerate(['individual', 'entity']):
         table = get_table(

@@ -1,7 +1,7 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 
-from utils import *
+from unscrapulous.utils import *
 
 SOURCE = 'https://www.mcxindia.com/Investor-Services/defaulters/defaulters-list'
 OUTPUT_DIR = '/tmp/unscrapulous/files'

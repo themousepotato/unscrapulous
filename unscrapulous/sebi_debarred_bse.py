@@ -1,7 +1,7 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 
-from utils import *
+from unscrapulous.utils import *
 
 PARENT_SOURCES = ['https://www.bseindia.com', 'https://www.bseindia.com/investors/']
 SOURCE = 'https://www.bseindia.com/investors/debent.aspx'

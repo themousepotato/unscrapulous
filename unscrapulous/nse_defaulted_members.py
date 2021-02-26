@@ -1,12 +1,12 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 
-from utils import *
+from unscrapulous.utils import *
 
-SOURCE = 'https://www1.nseindia.com/invest/json/exp_members.json'
+SOURCE = 'https://www1.nseindia.com/invest/json/def_members.json'
 FILE_PARENT_URL = 'https://www1.nseindia.com/invest/resources/download/'
 OUTPUT_DIR = '/tmp/unscrapulous/files'
-OUTPUT_FILE = 'nse-expelled-members.csv'
+OUTPUT_FILE = 'nse-defaulted-members.csv'
 
 def main():
     create_dir(OUTPUT_DIR)

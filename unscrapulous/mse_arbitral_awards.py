@@ -1,7 +1,7 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 
-from utils import *
+from unscrapulous.utils import *
 
 SOURCE = 'https://www.msei.in/investors/list-of-arbitrators'
 OUTPUT_DIR = '/tmp/unscrapulous/files'

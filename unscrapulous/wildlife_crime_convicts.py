@@ -1,7 +1,7 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 
-from utils import *
+from unscrapulous.utils import *
 
 SOURCE = 'http://wccb.gov.in/Content/Convicts.aspx'
 OUTPUT_DIR = '/tmp/unscrapulous/files'

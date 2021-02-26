@@ -1,7 +1,7 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 
-from utils import *
+from unscrapulous.utils import *
 
 SOURCE = 'https://www.bseindia.com/static/members/List_defaulters_Expelled_members.aspx'
 OUTPUT_DIR = '/tmp/unscrapulous/files'

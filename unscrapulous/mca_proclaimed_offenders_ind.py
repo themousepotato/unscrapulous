@@ -1,12 +1,12 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 
-from utils import *
+from unscrapulous.utils import *
 
 PARENT_SOURCE = 'http://www.mca.gov.in'
-SOURCE = 'http://www.mca.gov.in/MinistryV2/disqualifieddirectorslist.html'
+SOURCE = 'http://www.mca.gov.in/MinistryV2/proclaimedoffenders.html'
 OUTPUT_DIR = '/tmp/unscrapulous/files'
-OUTPUT_FILE = 'mca-director-disqualified-list.csv'
+OUTPUT_FILE = 'mca-proclaimed-offenders-ind.csv'
 
 def main():
     create_dir(OUTPUT_DIR)

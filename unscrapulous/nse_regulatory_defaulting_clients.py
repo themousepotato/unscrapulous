@@ -1,7 +1,7 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 
-from utils import *
+from unscrapulous.utils import *
 
 SOURCE = 'https://www.nseindia.com/regulations/exchange-defaulting-clients'
 OUTPUT_DIR = '/tmp/unscrapulous/files'

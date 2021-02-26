@@ -1,7 +1,7 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 
-from utils import *
+from unscrapulous.utils import *
 
 SOURCE = 'https://ncdex.com/suspended_member/latest_info'
 OUTPUT_DIR = '/tmp/unscrapulous/files'

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "unscrapulous"
-version = "0.1.0"
+version = "0.1.1"
 description = "A utility that scrapes lists of unscrupulous entities (barred from doing financial business) published by various legal institutions"
 authors = ["Navaneeth Suresh <navaneeths1998@gmail.com>"]
 license = "MIT License"
@@ -20,6 +20,9 @@ argparse = "^1.4.0"
 toml = "^0.10.2"
 
 [tool.poetry.dev-dependencies]
+
+[tool.poetry.scripts]
+unscrapulous = 'unscrapulous.unscrapulous:main'
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

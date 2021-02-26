@@ -1,7 +1,7 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 
-from utils import *
+from unscrapulous.utils import *
 
 SOURCE = 'https://www.icexindia.com/membership/expelled-defaulter-surrendered-members'
 OUTPUT_DIR = '/tmp/unscrapulous/files'

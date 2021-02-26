@@ -1,7 +1,7 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 
-from utils import *
+from unscrapulous.utils import *
 
 PARENT_SOURCE = 'https://www.mcxindia.com'
 SOURCE = 'https://www.mcxindia.com/membership/notice-board/notice-board-disciplinary-action'

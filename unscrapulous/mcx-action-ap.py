@@ -5,7 +5,7 @@ from utils import *
 
 PARENT_SOURCE = 'https://www.mcxindia.com'
 SOURCE = 'https://www.mcxindia.com/membership/notice-board/notice-board-disciplinary-action'
-OUTPUT_DIR = os.path.join(os.getcwd(), 'files')
+OUTPUT_DIR = '/tmp/unscrapulous/files'
 OUTPUT_FILE = 'mcx-action-ap.csv'
 
 def main():

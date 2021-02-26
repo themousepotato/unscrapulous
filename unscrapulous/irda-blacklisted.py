@@ -5,7 +5,7 @@ from utils import *
 import datetime
 
 SOURCE = 'https://agencyportal.irdai.gov.in/PublicAccess/BlackListedAgent.aspx'
-OUTPUT_DIR = os.path.join(os.getcwd(), 'files')
+OUTPUT_DIR = '/tmp/unscrapulous/files'
 OUTPUT_FILE = 'irda-blacklisted.csv'
 
 def main():

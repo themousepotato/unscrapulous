@@ -4,7 +4,7 @@
 from utils import *
 
 SOURCE = 'https://ncdex.com/suspended_member/latest_info'
-OUTPUT_DIR = os.path.join(os.getcwd(), 'files')
+OUTPUT_DIR = '/tmp/unscrapulous/files'
 OUTPUT_FILE = 'ncdex-suspended-defaulted-expelled-debarred-members.csv'
 
 FORM_DATA = {

@@ -5,7 +5,7 @@ from utils import *
 
 PARENT_SOURCE = 'http://www.mca.gov.in'
 SOURCE = 'http://www.mca.gov.in/MinistryV2/disqualifieddirectorslist.html'
-OUTPUT_DIR = os.path.join(os.getcwd(), 'files')
+OUTPUT_DIR = '/tmp/unscrapulous/files'
 OUTPUT_FILE = 'mca-director-disqualified-list.csv'
 
 def main():

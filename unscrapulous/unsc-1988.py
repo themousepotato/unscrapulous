@@ -4,7 +4,7 @@
 from utils import *
 
 SOURCE = 'https://scsanctions.un.org/taliban/'
-OUTPUT_DIR = os.path.join(os.getcwd(), 'files')
+OUTPUT_DIR = '/tmp/unscrapulous/files'
 OUTPUT_FILE = 'unsc-1988-list.csv'
 
 def main():

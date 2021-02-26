@@ -5,7 +5,7 @@ from utils import *
 
 SOURCE = 'https://www1.nseindia.com/invest/json/exp_members.json'
 FILE_PARENT_URL = 'https://www1.nseindia.com/invest/resources/download/'
-OUTPUT_DIR = os.path.join(os.getcwd(), 'files')
+OUTPUT_DIR = '/tmp/unscrapulous/files'
 OUTPUT_FILE = 'nse-expelled-members.csv'
 
 def main():

@@ -5,7 +5,7 @@ from utils import *
 
 PARENT_SOURCE = 'http://www.mca.gov.in'
 SOURCE = 'http://www.mca.gov.in/MinistryV2/defaultercompanieslist.html'
-OUTPUT_DIR = os.path.join(os.getcwd(), 'files')
+OUTPUT_DIR = '/tmp/unscrapulous/files'
 OUTPUT_FILE = 'mca-company-defaulter-list.csv'
 
 def main():

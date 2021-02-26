@@ -5,7 +5,7 @@ from utils import *
 
 PARENT_SOURCES = ['https://www.bseindia.com', 'https://www.bseindia.com/investors/']
 SOURCE = 'https://www.bseindia.com/investors/debent.aspx'
-OUTPUT_DIR = os.path.join(os.getcwd(), 'files')
+OUTPUT_DIR = '/tmp/unscrapulous/files'
 OUTPUT_FILE = 'sebi-debarred-bse.csv'
 
 def main():

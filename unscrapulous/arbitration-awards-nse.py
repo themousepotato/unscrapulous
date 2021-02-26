@@ -4,7 +4,7 @@
 from utils import *
 
 SOURCE = 'https://www1.nseindia.com/invest/dynaContent/arbitration_award.jsp?requestPage=main&qryFlag=yes'
-OUTPUT_DIR = os.path.join(os.getcwd(), 'files')
+OUTPUT_DIR = '/tmp/unscrapulous/files'
 OUTPUT_FILE = 'arbitration-awards-nse.csv'
 
 def main():

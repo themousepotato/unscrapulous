@@ -4,7 +4,7 @@
 from utils import *
 
 SOURCE = 'https://www.bseindia.com/static/members/List_defaulters_Expelled_members.aspx'
-OUTPUT_DIR = os.path.join(os.getcwd(), 'files')
+OUTPUT_DIR = '/tmp/unscrapulous/files'
 OUTPUT_FILE = 'bse-defaulter-and-expelled-members.csv'
 
 def main():

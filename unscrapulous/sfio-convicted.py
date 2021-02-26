@@ -4,7 +4,7 @@
 from utils import *
 
 SOURCE = 'https://sfio.nic.in/'
-OUTPUT_DIR = os.path.join(os.getcwd(), 'files')
+OUTPUT_DIR = '/tmp/unscrapulous/files'
 OUTPUT_FILE = 'sfio-convicted.csv'
 
 def main():

@@ -4,7 +4,7 @@
 from utils import *
 
 SOURCE = 'http://wccb.gov.in/Content/Convicts.aspx'
-OUTPUT_DIR = os.path.join(os.getcwd(), 'files')
+OUTPUT_DIR = '/tmp/unscrapulous/files'
 OUTPUT_FILE = 'wildlife-crime-convicts.csv'
 
 def main():

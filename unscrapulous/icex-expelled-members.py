@@ -4,7 +4,7 @@
 from utils import *
 
 SOURCE = 'https://www.icexindia.com/membership/expelled-defaulter-surrendered-members'
-OUTPUT_DIR = os.path.join(os.getcwd(), 'files')
+OUTPUT_DIR = '/tmp/unscrapulous/files'
 OUTPUT_FILE = 'icex-expelled-members.csv'
 
 def main():

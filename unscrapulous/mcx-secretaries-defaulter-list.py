@@ -4,7 +4,7 @@
 from utils import *
 
 SOURCE = 'https://www.mcxindia.com/Investor-Services/defaulters/defaulters-list'
-OUTPUT_DIR = os.path.join(os.getcwd(), 'files')
+OUTPUT_DIR = '/tmp/unscrapulous/files'
 OUTPUT_FILE = 'mcx-secretaries-defaulter-list.csv'
 
 def main():

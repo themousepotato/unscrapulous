@@ -4,7 +4,7 @@
 from utils import *
 
 SOURCE = 'https://www.bseindia.com/investors/ArbitAwards.aspx'
-OUTPUT_DIR = os.path.join(os.getcwd(), 'files')
+OUTPUT_DIR = '/tmp/unscrapulous/files'
 OUTPUT_FILE = 'arbitration-awards-bse.csv'
 
 def main():

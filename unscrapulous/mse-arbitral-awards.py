@@ -4,7 +4,7 @@
 from utils import *
 
 SOURCE = 'https://www.msei.in/investors/list-of-arbitrators'
-OUTPUT_DIR = os.path.join(os.getcwd(), 'files')
+OUTPUT_DIR = '/tmp/unscrapulous/files'
 OUTPUT_FILE = 'sfio-convicted.csv'
 
 def main():

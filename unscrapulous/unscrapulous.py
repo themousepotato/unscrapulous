@@ -9,6 +9,8 @@ from utils import *
 import argparse
 import toml
 
+OUTPUT_DIR = '/tmp/unscrapulous/files'
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--config', help='Path to the config file', default='config.toml')
@@ -24,7 +26,7 @@ def main():
     for filename in filenames:
         call(['python', filename + '.py'])
 
-    csv_files = [os.path.join('files', f) for f in os.listdir('files') if f.endswith('.csv')]
+    csv_files = [os.path.join(OUTPUT_DIR, f) for f in os.listdir(OUTPUT_DIR) if f.endswith('.csv')]
     merge_csvs(filenames=csv_files, output_filename=output_filename, delete=True)
 
 if __name__ == '__main__':

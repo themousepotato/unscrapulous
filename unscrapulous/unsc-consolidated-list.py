@@ -4,7 +4,7 @@
 from utils import *
 
 SOURCE = 'https://www.un.org/securitycouncil/content/un-sc-consolidated-list'
-OUTPUT_DIR = os.path.join(os.getcwd(), 'files')
+OUTPUT_DIR = '/tmp/unscrapulous/files'
 OUTPUT_FILE = 'unsc-consolidated-list.csv'
 
 def main():

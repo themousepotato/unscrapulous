@@ -4,7 +4,7 @@
 from utils import *
 
 SOURCE = 'https://www.nseindia.com/regulations/exchange-defaulting-clients'
-OUTPUT_DIR = os.path.join(os.getcwd(), 'files')
+OUTPUT_DIR = '/tmp/unscrapulous/files'
 OUTPUT_FILE = 'nse-regulatory-defaulting-clients.csv'
 
 def main():

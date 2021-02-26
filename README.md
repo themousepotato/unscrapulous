@@ -70,6 +70,11 @@ unsc_consolidated_list = false
 wildlife_crime_convicts = false
 ```
 
+## Popular users
+|                               | Organization  | Description  |
+| ----------------------------- |:-------------:|:-------------:
+| ![](images/zerodha.png "Zerodha") | [Zerodha](https://zerodha.com/)  | Online platform to invest in stocks, derivatives, mutual funds, etc. |
+
 ## Roadmap
 | Source                                                | Category      | Status        |
 | ----------------------------------------------------- |:-------------:| :-------------|
@@ -117,6 +122,7 @@ wildlife_crime_convicts = false
 | [United Kingdom Sanction List](https://www.gov.uk/government/publications/the-uk-sanctions-list)                          | B             | <ul><li>- [ ] ods/odt -> csv</li><li>- [ ] Generate fields for global csv</li></ul> |
 | OFAC                                                  | B             | Couldn't find source |
 | Local PEP - Only India PEP                            | B             | Couldn't find source |
+
 
 
 

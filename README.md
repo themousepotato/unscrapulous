@@ -1,4 +1,7 @@
 # Unscrapulous - scrape unscrupulous entities
+[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
+[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
+
 ![artwork](images/logo.png "Agent X who populates the database with unscrupulous entities")
 
 *Artwork by [@xypnox](https://github.com/xypnox/)*
@@ -114,5 +117,6 @@ wildlife_crime_convicts = false
 | [United Kingdom Sanction List](https://www.gov.uk/government/publications/the-uk-sanctions-list)                          | B             | <ul><li>- [ ] ods/odt -> csv</li><li>- [ ] Generate fields for global csv</li></ul> |
 | OFAC                                                  | B             | Couldn't find source |
 | Local PEP - Only India PEP                            | B             | Couldn't find source |
+
 
 

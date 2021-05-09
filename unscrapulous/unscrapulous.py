@@ -3,11 +3,12 @@
 
 # Usage: ./unscrapulous.py --config=config.toml --output=results.csv
 
-from subprocess import call
 from importlib import import_module
+from subprocess import call
 from unscrapulous.utils import *
 
 import argparse
+import psycopg2
 import toml
 
 OUTPUT_DIR = '/tmp/unscrapulous/files'
@@ -30,6 +31,27 @@ def main():
 
     csv_files = [os.path.join(OUTPUT_DIR, f'{submodule}.csv'.replace('_', '-')) for submodule in submodules]
     merge_csvs(filenames=csv_files, output_filename=output_filename, delete=True)
+
+    conn = psycopg2.connect(**config['postgresql_conn'])
+    cur = conn.cursor()
+    cur.execute("""
+        CREATE TABLE unscrupulous_entities(
+            PAN text,
+            Name text,
+            AddedDate text,
+            Source text,
+            Meta text
+        )
+    """)
+    with open(output_filename, 'r') as f:
+        reader = csv.reader(f)
+        next(reader)
+        for row in reader:
+            cur.execute(
+                'INSERT INTO unscrupulous_entities VALUES (%s, %s, %s, %s, %s)',
+                row
+            )
+    conn.commit()
 
 if __name__ == '__main__':
     main()

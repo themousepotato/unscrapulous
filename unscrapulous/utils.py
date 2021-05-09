@@ -216,6 +216,7 @@ def write_global_csv(filename, source, alias, fillna=False):
     df = pd.read_csv(filename, sep=',', dtype=object, error_bad_lines=False)
     df = df.replace('\r', ' ', regex=True)
     df = df.replace('\n', ' ', regex=True)
+    df = df.replace(',', ' ')
 
     # Change columns to second row if first row is a single cell text
     # For ex: in SFIO convicted

@@ -20,6 +20,7 @@ The database contains the following fields:
 
 ## Installation
 ```bash
+$ sudo apt-get install postgresql postgresql-contrib libpq-dev
 $ pip install unscrapulous
 ```
 
@@ -41,6 +42,12 @@ $ pip install dist/unscrapulous-*.whl
 ## Config
 The `config.toml` file has the following format:
 ```toml
+[postgresql_conn]
+host = 'localhost'
+dbname = 'postgres'
+user = 'postgres'
+password = 'password'
+
 [scrapers]
 arbitration_awards_bse = false
 arbitration_awards_nse = false

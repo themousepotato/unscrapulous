@@ -18,6 +18,7 @@ openpyxl = "^3.0.6"
 xlrd = "^2.0.1"
 argparse = "^1.4.0"
 toml = "^0.10.2"
+psycopg2 = "^2.8.6"
 
 [tool.poetry.dev-dependencies]
 

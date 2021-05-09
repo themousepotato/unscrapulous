@@ -1,8 +1,6 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 
-# Usage: ./unscrapulous.py --config=config.toml
-
 from importlib import import_module
 from subprocess import call
 from unscrapulous.utils import *

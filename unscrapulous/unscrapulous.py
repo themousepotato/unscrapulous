@@ -28,7 +28,7 @@ def main():
         mod = import_module(f'unscrapulous.{submodule}')
         mod.main()
 
-    csv_files = [os.path.join(OUTPUT_DIR, f) for f in os.listdir(OUTPUT_DIR) if f.endswith('.csv')]
+    csv_files = [os.path.join(OUTPUT_DIR, f'{submodule}.csv'.replace('_', '-')) for submodule in submodules]
     merge_csvs(filenames=csv_files, output_filename=output_filename, delete=True)
 
 if __name__ == '__main__':

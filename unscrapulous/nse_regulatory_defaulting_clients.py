@@ -7,7 +7,7 @@ SOURCE = 'https://www.nseindia.com/regulations/exchange-defaulting-clients'
 OUTPUT_DIR = '/tmp/unscrapulous/files'
 OUTPUT_FILE = 'nse-regulatory-defaulting-clients.csv'
 
-def main():
+def main(conn):
     create_dir(OUTPUT_DIR)
     soup = get_soup(SOURCE)
     file_url = soup.find('a', {'class' : 'file'})['href']
@@ -22,8 +22,5 @@ def main():
         'Name': 'Name of the Defaulting client ',
         'AddedDate': 'Date of Order / Award '
     }
-    write_global_csv(filename=os.path.join(OUTPUT_DIR, OUTPUT_FILE), source=SOURCE, alias=alias)
+    write_to_db(conn=conn, filename=os.path.join(OUTPUT_DIR, OUTPUT_FILE), source=SOURCE, alias=alias)
 
-
-if __name__ == '__main__':
-    main()

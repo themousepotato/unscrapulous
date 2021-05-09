@@ -8,7 +8,7 @@ SOURCE = 'https://www.bseindia.com/investors/debent.aspx'
 OUTPUT_DIR = '/tmp/unscrapulous/files'
 OUTPUT_FILE = 'sebi-debarred-bse.csv'
 
-def main():
+def main(conn):
     create_dir(OUTPUT_DIR)
     soup = get_soup(SOURCE)
     link = soup.find('div', {'id': 'divid'}).find('div')['ng-include'].replace('\'', '')
@@ -28,7 +28,5 @@ def main():
         'Name': 'Scrip Name /Entity',
         'AddedDate': 'Date of Order '
     }
-    write_global_csv(filename=os.path.join(OUTPUT_DIR, OUTPUT_FILE), source=SOURCE, alias=alias)
+    write_to_db(conn=conn, filename=os.path.join(OUTPUT_DIR, OUTPUT_FILE), source=SOURCE, alias=alias)
 
-if __name__ == '__main__':
-    main()

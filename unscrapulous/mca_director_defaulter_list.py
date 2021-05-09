@@ -8,7 +8,7 @@ SOURCE = 'http://www.mca.gov.in/MinistryV2/defaulterdirectorslist.html'
 OUTPUT_DIR = '/tmp/unscrapulous/files'
 OUTPUT_FILE = 'mca-director-defaulter-list.csv'
 
-def main():
+def main(conn):
     create_dir(OUTPUT_DIR)
     soup = get_soup(SOURCE)
     file_urls = [PARENT_SOURCE + a['href'] for a in soup.find_all('a') if a.text.startswith('Link to view')]
@@ -24,7 +24,5 @@ def main():
         'Name': 'Name',
         'AddedDate': 'AddedDate'
     }
-    write_global_csv(filename=os.path.join(OUTPUT_DIR, OUTPUT_FILE), source=SOURCE, alias=alias)
+    write_to_db(conn=conn, filename=os.path.join(OUTPUT_DIR, OUTPUT_FILE), source=SOURCE, alias=alias)
 
-if __name__ == '__main__':
-    main()

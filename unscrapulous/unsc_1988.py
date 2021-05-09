@@ -7,7 +7,7 @@ SOURCE = 'https://scsanctions.un.org/taliban/'
 OUTPUT_DIR = '/tmp/unscrapulous/files'
 OUTPUT_FILE = 'unsc-1988-list.csv'
 
-def main():
+def main(conn):
     create_dir(OUTPUT_DIR)
     soup = get_soup(SOURCE)
     filenames = [OUTPUT_FILE.replace('list','individuals'), OUTPUT_FILE.replace('list', 'entities')]
@@ -29,7 +29,5 @@ def main():
          'Name': 'first_name',
          'AddedDate': 'listed_on'
     }
-    write_global_csv(filename=output_filename, source=SOURCE, alias=alias)
+    write_to_db(conn=conn, filename=output_filename, source=SOURCE, alias=alias)
 
-if __name__ == '__main__':
-    main()

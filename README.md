@@ -26,7 +26,7 @@ $ pip install unscrapulous
 
 ## Usage
 ```bash
-$ unscrapulous --config=config.toml --output=output.csv
+$ unscrapulous --config=config.toml
 ```
 
 ## Development

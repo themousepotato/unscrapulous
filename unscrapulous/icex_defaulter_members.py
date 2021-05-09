@@ -7,7 +7,7 @@ SOURCE = 'https://www.icexindia.com/membership/expelled-defaulter-surrendered-me
 OUTPUT_DIR = '/tmp/unscrapulous/files'
 OUTPUT_FILE = 'icex-defaulter-members.csv'
 
-def main():
+def main(conn):
     create_dir(OUTPUT_DIR)
     soup = get_soup(SOURCE)
     soup = soup.find_all('ul', {'class': 'downloadSec'})[0]
@@ -25,7 +25,5 @@ def main():
         'Name': 'Name and address of the Member',
         'AddedDate': 'Date of\rDeclaration'
     }
-    write_global_csv(filename=os.path.join(OUTPUT_DIR, OUTPUT_FILE), source=SOURCE, alias=alias)
+    write_to_db(conn=conn, filename=os.path.join(OUTPUT_DIR, OUTPUT_FILE), source=SOURCE, alias=alias)
 
-if __name__ == '__main__':
-    main()

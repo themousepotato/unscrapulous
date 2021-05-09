@@ -7,7 +7,7 @@ SOURCE = 'https://www.bseindia.com/investors/ArbitAwards.aspx'
 OUTPUT_DIR = '/tmp/unscrapulous/files'
 OUTPUT_FILE = 'arbitration-awards-bse.csv'
 
-def main():
+def main(conn):
     create_dir(OUTPUT_DIR)
     soup = get_soup(SOURCE)
     table = get_table(soup, {'id' : 'ContentPlaceHolder1_gvAwardDetails'})
@@ -18,8 +18,5 @@ def main():
         'Name': 'Name of Member',
         'AddedDate': 'Date Of Issue'
     }
-    write_global_csv(filename=os.path.join(OUTPUT_DIR, OUTPUT_FILE), source=SOURCE, alias=alias)
+    write_to_db(conn=conn, filename=os.path.join(OUTPUT_DIR, OUTPUT_FILE), source=SOURCE, alias=alias)
 
-
-if __name__ == '__main__':
-    main()

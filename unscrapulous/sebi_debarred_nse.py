@@ -7,7 +7,7 @@ SOURCE = 'https://www.nseindia.com/regulations/member-sebi-debarred-entities'
 OUTPUT_DIR = '/tmp/unscrapulous/files'
 OUTPUT_FILE = 'sebi-debarred-nse.csv'
 
-def main():
+def main(conn):
     create_dir(OUTPUT_DIR)
     soup = get_soup(SOURCE)
     file_url = soup.find('a', {'class' : 'file--mime-application-vnd-ms-excel'})['href']
@@ -23,7 +23,5 @@ def main():
         'Name': 'Entity / Individual Name',
         'AddedDate': 'Order Date'
     }
-    write_global_csv(filename=out_filename, source=SOURCE, alias=alias, fillna=True)
+    write_to_db(conn=conn, filename=out_filename, source=SOURCE, alias=alias, fillna=True)
 
-if __name__ == '__main__':
-    main()

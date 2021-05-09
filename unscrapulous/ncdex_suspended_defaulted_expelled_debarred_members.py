@@ -36,7 +36,7 @@ COOKIES = {
     "XSRF-TOKEN":"eyJpdiI6Im50dXpaM045OGJmbVwvWWkwNjVtbkh3PT0iLCJ2YWx1ZSI6IlJFYzIzSVJqZHpHcWd1ejRUQ2FOeXNPNzRFR0hqenNXVFkxdnpORDJubDA2YUpXQWdja2ZPRWZYdzNMRlBya3YiLCJtYWMiOiI5OTQ3NDBhZjhmZDRiYTA5MTQ3MzEyZDA2M2UxMzI0Mzg2ODFkYzlhYWM1ZmMzMzdlMWNlOTNhZWVlNzVmNWExIn0="
 }
 
-def main():
+def main(conn):
     create_dir(OUTPUT_DIR)
     soup = get_soup(SOURCE)
     rjson = get_json_response(source=SOURCE, data=FORM_DATA, cookies=COOKIES)
@@ -51,5 +51,3 @@ def main():
 
     #TODO: write global csv after preprocessing the csv in bad format
 
-if __name__ == '__main__':
-    main()

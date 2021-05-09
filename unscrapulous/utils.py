@@ -5,6 +5,7 @@ import csv
 import os
 import PyPDF2 as pypdf
 import pandas as pd
+import psycopg2.extras
 import requests as req
 import tabula
 import xml.etree.ElementTree as ET
@@ -204,9 +205,9 @@ def write_added_date(filenames):
         df['AddedDate'] = date
         df.to_csv(csv_filename, index=False)
 
-def write_global_csv(filename, source, alias, fillna=False):
+def write_to_db(conn, filename, source, alias, fillna=False):
     '''
-    Writes a csv file with the following global attributes:
+    Writes data to a Postgres DB with the following fields:
     1. PAN
     2. Name
     3. AddedDate - day of blacklisting according to the source
@@ -245,4 +246,18 @@ def write_global_csv(filename, source, alias, fillna=False):
 
     out_df['Source'] = source
     out_df['Meta'] = pd.Series(df.to_json(orient ='records', lines=True).split('\n'))
-    out_df.to_csv(filename, sep=',', encoding='utf-8', index=None)
+
+    df_columns = list(out_df)
+    columns = ','.join(df_columns)
+    values = 'VALUES({})'.format(','.join(['%s' for _ in df_columns]))
+
+    cur = conn.cursor()
+    psycopg2.extras.execute_batch(
+        cur,
+        f'INSERT INTO unscrupulous_entities ({columns}) {values}',
+        out_df.values
+    )
+    conn.commit()
+    cur.close()
+
+    delete_files([filename])

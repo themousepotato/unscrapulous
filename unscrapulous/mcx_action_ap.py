@@ -8,7 +8,7 @@ SOURCE = 'https://www.mcxindia.com/membership/notice-board/notice-board-discipli
 OUTPUT_DIR = '/tmp/unscrapulous/files'
 OUTPUT_FILE = 'mcx-action-ap.csv'
 
-def main():
+def main(conn):
     create_dir(OUTPUT_DIR)
     soup = get_soup(SOURCE)
     table = soup.find('table', {'class': 'table1'})
@@ -44,7 +44,5 @@ def main():
         'Name': 'Name and address of the AP',
         'AddedDate': 'Date of withdrawal of approval'
     }
-    write_global_csv(filename=os.path.join(OUTPUT_DIR, OUTPUT_FILE), source=SOURCE, alias=alias)
+    write_to_db(conn=conn, filename=os.path.join(OUTPUT_DIR, OUTPUT_FILE), source=SOURCE, alias=alias)
 
-if __name__ == '__main__':
-    main()

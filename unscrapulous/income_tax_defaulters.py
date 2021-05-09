@@ -8,7 +8,7 @@ FILE_URL = 'http://office.incometaxindia.gov.in/administration/Lists/Tax%20Defau
 OUTPUT_DIR = '/tmp/unscrapulous/files'
 OUTPUT_FILE = 'income-tax-defaulters.csv'
 
-def main():
+def main(conn):
     out_rows = [
         ['Title',
          'Approval Status',
@@ -71,7 +71,5 @@ def main():
         'Name': 'Title',
         'AddedDate': 'Modified'
     }
-    write_global_csv(os.path.join(OUTPUT_DIR, OUTPUT_FILE), source=FILE_URL, alias=alias)
+    write_to_db(conn=conn, os.path.join(OUTPUT_DIR, OUTPUT_FILE), source=FILE_URL, alias=alias)
 
-if __name__ == '__main__':
-    main()

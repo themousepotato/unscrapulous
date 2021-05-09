@@ -7,7 +7,7 @@ SOURCE = 'https://sfio.nic.in/'
 OUTPUT_DIR = '/tmp/unscrapulous/files'
 OUTPUT_FILE = 'sfio-convicted.csv'
 
-def main():
+def main(conn):
     create_dir(OUTPUT_DIR)
     soup = get_soup(SOURCE)
     menu_links = {a.text : a.get('href') for a in soup.find_all('a', class_='menu__link')}
@@ -22,8 +22,5 @@ def main():
         'Name': 'Name of the Company',
         'AddedDate': 'Date of filing / Reciving of notice'
     }
-    write_global_csv(filename=os.path.join(OUTPUT_DIR, OUTPUT_FILE), source=SOURCE, alias=alias)
+    write_to_db(conn=conn, filename=os.path.join(OUTPUT_DIR, OUTPUT_FILE), source=SOURCE, alias=alias)
 
-
-if __name__ == '__main__':
-    main()

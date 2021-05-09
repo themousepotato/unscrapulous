@@ -8,7 +8,7 @@ FILE_PARENT_URL = 'https://www1.nseindia.com/invest/resources/download/'
 OUTPUT_DIR = '/tmp/unscrapulous/files'
 OUTPUT_FILE = 'nse-expelled-members.csv'
 
-def main():
+def main(conn):
     create_dir(OUTPUT_DIR)
     rjson = get_json_response(SOURCE, method='GET')
     table = [list(rjson['data'][0].keys())]
@@ -23,7 +23,5 @@ def main():
         'Name': 'memberName',
         'AddedDate': 'declarationDate'
     }
-    write_global_csv(filename=os.path.join(OUTPUT_DIR, OUTPUT_FILE), source=SOURCE, alias=alias)
+    write_to_db(conn=conn, filename=os.path.join(OUTPUT_DIR, OUTPUT_FILE), source=SOURCE, alias=alias)
 
-if __name__ == '__main__':
-    main()

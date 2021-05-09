@@ -7,7 +7,7 @@ SOURCE = 'https://www.un.org/securitycouncil/content/un-sc-consolidated-list'
 OUTPUT_DIR = '/tmp/unscrapulous/files'
 OUTPUT_FILE = 'unsc-consolidated-list.csv'
 
-def main():
+def main(conn):
     create_dir(OUTPUT_DIR)
     soup = get_soup(SOURCE)
     file_url = [link['href'] for link in soup.find_all('a', {'class' : 'documentlinks uw-link-btn'}) if 'xml' in link['href']][0]
@@ -31,7 +31,5 @@ def main():
          'Name': 'first_name',
          'AddedDate': 'listed_on'
     }
-    write_global_csv(filename=output_filename, source=SOURCE, alias=alias)
+    write_to_db(conn=conn, filename=output_filename, source=SOURCE, alias=alias)
 
-if __name__ == '__main__':
-    main()

@@ -7,7 +7,7 @@ SOURCE = 'https://www.msei.in/investors/list-of-arbitrators'
 OUTPUT_DIR = '/tmp/unscrapulous/files'
 OUTPUT_FILE = 'sfio-convicted.csv'
 
-def main():
+def main(conn):
     create_dir(OUTPUT_DIR)
     soup = get_soup(SOURCE)
     table = soup.find('table', {'class' : 'table-striped'})
@@ -23,5 +23,3 @@ def main():
 
     #TODO: write global csv after preprocessing the csvs in bad format and merging them
 
-if __name__ == '__main__':
-    main()

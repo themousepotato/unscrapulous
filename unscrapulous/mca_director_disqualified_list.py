@@ -8,7 +8,7 @@ SOURCE = 'http://www.mca.gov.in/MinistryV2/disqualifieddirectorslist.html'
 OUTPUT_DIR = '/tmp/unscrapulous/files'
 OUTPUT_FILE = 'mca-director-disqualified-list.csv'
 
-def main():
+def main(conn):
     create_dir(OUTPUT_DIR)
     soup = get_soup(SOURCE)
     links = [PARENT_SOURCE + a['href'] for a in soup.find_all('a', class_='links_black_EES')]
@@ -22,5 +22,3 @@ def main():
     # TODO: convert downloaded files to csv and write a global csv
     # Note that most of the files don't contain data in a readable format
 
-if __name__ == '__main__':
-    main()

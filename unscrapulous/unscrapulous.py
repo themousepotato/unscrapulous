@@ -21,7 +21,7 @@ def main():
     conn = psycopg2.connect(**config['postgresql_conn'])
     cur = conn.cursor()
     cur.execute("""
-        CREATE TABLE unscrupulous_entities(
+        CREATE TABLE IF NOT EXISTS unscrupulous_entities(
             PAN text,
             Name text,
             AddedDate text,

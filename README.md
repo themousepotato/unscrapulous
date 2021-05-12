@@ -11,11 +11,12 @@ Various regulatory bodies publish list of people/entities who have violated laws
 
 The database contains the following fields:
 ```
-1. PAN
-2. Name
-3. AddedDate (day of blacklisting according to the source)
-4. Source
-5. Meta (a JSON encoded field of whatever fields each source provides)
+1. ID
+2. PAN
+3. Name
+4. AddedDate (day of blacklisting according to the source)
+5. Source
+6. Meta (a JSON encoded field of whatever fields each source provides)
 ```
 
 ## Installation

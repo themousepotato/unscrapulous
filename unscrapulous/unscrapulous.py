@@ -22,6 +22,7 @@ def main():
     cur = conn.cursor()
     cur.execute("""
         CREATE TABLE IF NOT EXISTS unscrupulous_entities(
+            ID SERIAL PRIMARY KEY,
             PAN text,
             Name text,
             AddedDate text,

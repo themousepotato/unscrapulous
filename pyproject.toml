@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "unscrapulous"
-version = "0.1.2"
+version = "0.1.3"
 description = "A utility that scrapes lists of unscrupulous entities (barred from doing financial business) published by various legal institutions"
 authors = ["Navaneeth Suresh <navaneeths1998@gmail.com>"]
 license = "MIT License"

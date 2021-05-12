@@ -71,5 +71,5 @@ def main(conn):
         'Name': 'Title',
         'AddedDate': 'Modified'
     }
-    write_to_db(conn=conn, os.path.join(OUTPUT_DIR, OUTPUT_FILE), source=FILE_URL, alias=alias)
+    write_to_db(conn=conn, filename=os.path.join(OUTPUT_DIR, OUTPUT_FILE), source=FILE_URL, alias=alias)
 

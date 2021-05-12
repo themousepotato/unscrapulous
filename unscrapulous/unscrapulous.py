@@ -33,6 +33,7 @@ def main():
 
     submodules = [f for f in config['scrapers'] if config['scrapers'][f]]
     for submodule in submodules:
+        print(f'Running {submodule}')
         mod = import_module(f'unscrapulous.{submodule}')
         mod.main(conn)
     conn.commit()

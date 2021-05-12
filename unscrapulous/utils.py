@@ -22,6 +22,8 @@ headers = {
     'Accept-Encoding': 'gzip, deflate'
 }
 
+req.packages.urllib3.disable_warnings()
+
 def convert_into_csv(filenames, output_dir, ext='pdf', table=[]):
     '''
     Converts `pdf/xls/xlsx` files to `csv`.
@@ -227,7 +229,7 @@ def write_to_db(conn, filename, source, alias, fillna=False):
         if j > i:
             df.columns = df.iloc[0]
             df = df.iloc[1:]
-    except TypeError:
+    except:
         pass
 
     # Remove multiple headers

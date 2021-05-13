@@ -2,7 +2,6 @@
 #-*- coding: utf-8 -*-
 
 from importlib import import_module
-from subprocess import call
 from unscrapulous.utils import *
 
 import argparse

@@ -36,18 +36,17 @@ COOKIES = {
     "XSRF-TOKEN":"eyJpdiI6Im50dXpaM045OGJmbVwvWWkwNjVtbkh3PT0iLCJ2YWx1ZSI6IlJFYzIzSVJqZHpHcWd1ejRUQ2FOeXNPNzRFR0hqenNXVFkxdnpORDJubDA2YUpXQWdja2ZPRWZYdzNMRlBya3YiLCJtYWMiOiI5OTQ3NDBhZjhmZDRiYTA5MTQ3MzEyZDA2M2UxMzI0Mzg2ODFkYzlhYWM1ZmMzMzdlMWNlOTNhZWVlNzVmNWExIn0="
 }
 
-def main(conn):
+def main(conn, session):
     create_dir(OUTPUT_DIR)
-    soup = get_soup(SOURCE)
-    rjson = get_json_response(source=SOURCE, data=FORM_DATA, cookies=COOKIES)
+    soup = get_soup(SOURCE, session)
+    rjson = get_json_response(SOURCE, session, data=FORM_DATA, cookies=COOKIES)
     a = rjson['data'][0]['file']
     soup = BeautifulSoup(a, 'lxml')
     file_url = soup.find('a')['href']
-    filenames = list(download_files(file_urls=[file_url], output_dir=OUTPUT_DIR).keys())
-    convert_into_csv(filenames=filenames, output_dir=OUTPUT_DIR)
+    filenames = list(download_files([file_url], OUTPUT_DIR, session).keys())
+    convert_into_csv(filenames, OUTPUT_DIR)
     delete_files(filenames)
     os.rename(os.path.join(OUTPUT_DIR, filenames[0].replace('pdf', 'csv')),
               os.path.join(OUTPUT_DIR, OUTPUT_FILE))
 
     #TODO: write global csv after preprocessing the csv in bad format
-

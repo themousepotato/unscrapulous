@@ -8,7 +8,7 @@ FILE_URL = 'http://office.incometaxindia.gov.in/administration/Lists/Tax%20Defau
 OUTPUT_DIR = '/tmp/unscrapulous/files'
 OUTPUT_FILE = 'income-tax-defaulters.csv'
 
-def main(conn):
+def main(conn, session):
     out_rows = [
         ['Title',
          'Approval Status',
@@ -32,7 +32,8 @@ def main(conn):
     row_count = 30
     while True:
         first_item_row = page * row_count + 1
-        resp = req.post(SOURCE + str(first_item_row))
+        with session:
+            resp = session.post(SOURCE + str(first_item_row))
         if resp.status_code != 200:
             break
 
@@ -65,11 +66,10 @@ def main(conn):
         ])
         page += 1
 
-    convert_into_csv(filenames=[OUTPUT_FILE], output_dir=OUTPUT_DIR, table=out_rows)
+    convert_into_csv([OUTPUT_FILE], OUTPUT_DIR, table=out_rows)
     alias = {
         'PAN': 'PAN',
         'Name': 'Title',
         'AddedDate': 'Modified'
     }
-    write_to_db(conn=conn, filename=os.path.join(OUTPUT_DIR, OUTPUT_FILE), source=FILE_URL, alias=alias)
-
+    write_to_db(conn, os.path.join(OUTPUT_DIR, OUTPUT_FILE), FILE_URL, alias)

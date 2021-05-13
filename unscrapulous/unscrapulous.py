@@ -20,7 +20,7 @@ def get_session():
     return thread_local.session
 
 def scrape(scraper):
-    mod = import_module(f'unscrapulous.{scraper}')
+    mod = import_module(f'unscrapulous.scrapers.{scraper}')
     mod.main(conn, get_session())
 
 def main():

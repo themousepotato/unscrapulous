@@ -7,14 +7,14 @@ SOURCE = 'https://sfio.nic.in/'
 OUTPUT_DIR = '/tmp/unscrapulous/files'
 OUTPUT_FILE = 'sfio-proclaimed-offenders.csv'
 
-def main(conn):
+def main(conn, session):
     create_dir(OUTPUT_DIR)
-    soup = get_soup(SOURCE)
+    soup = get_soup(SOURCE, session)
     menu_links = {link.text : link.get('href') for link in soup.find_all('a', class_='menu__link')}
     file_url = menu_links['List of Proclaimed Offenders']
     filename = file_url.split('/')[-1]
-    download_files(file_urls=[file_url], output_dir=OUTPUT_DIR)
-    convert_into_csv(filenames=[filename], output_dir=OUTPUT_DIR)
+    download_files([file_url], OUTPUT_DIR, session)
+    convert_into_csv([filename], OUTPUT_DIR)
     delete_files([os.path.join(OUTPUT_DIR, filename)])
     filename = os.path.join(OUTPUT_DIR, filename.replace('pdf', 'csv'))
     output_filename = os.path.join(OUTPUT_DIR, OUTPUT_FILE)
@@ -23,5 +23,4 @@ def main(conn):
          'Name': 'Name of the\rCompany',
          'AddedDate': 'Date of\rorder of the\rCourt'
     }
-    write_to_db(conn=conn, filename=output_filename, source=SOURCE, alias=alias)
-
+    write_to_db(conn, output_filename, SOURCE, alias)

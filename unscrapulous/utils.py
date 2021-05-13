@@ -69,19 +69,20 @@ def delete_files(filenames):
     for filename in filenames:
         os.remove(filename)
 
-def download_files(file_urls, output_dir):
+def download_files(file_urls, output_dir, session):
     '''
     Downloads all files from a list of `file_urls` and returns a mapping
     between filenames and the corresponding file_urls
     '''
-    file_sources = {}
-    for file_url in file_urls:
-        resp = req.get(file_url, headers=headers, verify=False)
-        filename = os.path.join(output_dir, file_url.split('/')[-1]) # TODO: use regex
-        if resp.status_code == 200:
-            file_sources[filename] = file_url
-            with open(filename, 'wb') as f:
-                f.write(resp.content)
+    with session:
+        file_sources = {}
+        for file_url in file_urls:
+            resp = session.get(file_url, headers=headers, verify=False)
+            filename = os.path.join(output_dir, file_url.split('/')[-1]) # TODO: use regex
+            if resp.status_code == 200:
+                file_sources[filename] = file_url
+                with open(filename, 'wb') as f:
+                    f.write(resp.content)
 
     return file_sources
 
@@ -95,14 +96,19 @@ def extract_zip(filename, output_dir):
 
     return paths
 
-def get_soup(source, method='GET', data={}, cookies={}, verify=False):
+def get_soup(source, session, method='GET', data={}, cookies={}, verify=False):
     '''
     Returns a `BeautifulSoup` object from request data
     '''
-    if method == 'GET':
-        resp = req.get(source, data=data, headers=headers, cookies=cookies, verify=verify)
-    elif method == 'POST':
-        resp = req.post(source, data=data, headers=headers, cookies=cookies, verify=verify)
+    with session:
+        if method == 'GET':
+            resp = session.get(
+                source, data=data, headers=headers, cookies=cookies, verify=verify
+            )
+        elif method == 'POST':
+            resp = session.post(
+                source, data=data, headers=headers, cookies=cookies, verify=verify
+            )
 
     html = resp.content
     soup = BeautifulSoup(html, 'lxml')
@@ -160,14 +166,19 @@ def get_table(soup, attrs={}, header=[], omit_cols=[], from_xml=False):
 
     return out_rows
 
-def get_json_response(source, data={}, cookies={}, verify=False, method='POST'):
+def get_json_response(source, session, data={}, cookies={}, verify=False, method='POST'):
     '''
     Returns the `json` response of a request
     '''
-    if method == 'GET':
-        resp = req.get(source, data=data, headers=headers, cookies=cookies, verify=verify)
-    elif method == 'POST':
-        resp = req.post(source, data=data, headers=headers, cookies=cookies, verify=verify)
+    with session:
+        if method == 'GET':
+            resp = session.get(
+                source, data=data, headers=headers, cookies=cookies, verify=verify
+            )
+        elif method == 'POST':
+            resp = session.post(
+                source, data=data, headers=headers, cookies=cookies, verify=verify
+            )
 
     return resp.json()
 

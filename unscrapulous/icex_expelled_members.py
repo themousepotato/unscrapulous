@@ -7,14 +7,19 @@ SOURCE = 'https://www.icexindia.com/membership/expelled-defaulter-surrendered-me
 OUTPUT_DIR = '/tmp/unscrapulous/files'
 OUTPUT_FILE = 'icex-expelled-members.csv'
 
-def main(conn):
+def main(conn, session):
     create_dir(OUTPUT_DIR)
-    soup = get_soup(SOURCE)
-    soup = soup.find_all('ul', {'class': 'downloadSec'})[0]
+    soup = get_soup(SOURCE, session)
+    soup = soup.find_all(
+        'ul',
+        {
+            'class': 'downloadSec'
+        }
+    )[0]
     links = {link.text : link.find('a').get('href') for link in soup.find_all('li')}
     
     file_url = links['List of Expelled Members']
-    filenames = list(download_files(file_urls=[file_url], output_dir=OUTPUT_DIR).keys())
+    filenames = list(download_files([file_url], OUTPUT_DIR, session).keys())
     convert_into_csv(filenames, OUTPUT_DIR)
     delete_files([os.path.join(OUTPUT_DIR, filename) for filename in filenames])
     os.rename(os.path.join(OUTPUT_DIR, filenames[0].replace('pdf', 'csv')),
@@ -25,5 +30,4 @@ def main(conn):
         'Name': 'Name and address of the Member',
         'AddedDate': 'Date of\rDeclaration'
     }
-    write_to_db(conn=conn, filename=os.path.join(OUTPUT_DIR, OUTPUT_FILE), source=SOURCE, alias=alias)
-
+    write_to_db(conn, os.path.join(OUTPUT_DIR, OUTPUT_FILE), SOURCE, alias)

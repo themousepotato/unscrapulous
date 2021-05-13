@@ -6,8 +6,23 @@ from subprocess import call
 from unscrapulous.utils import *
 
 import argparse
+import concurrent.futures
 import psycopg2
+import threading
+import time
 import toml
+
+thread_local = threading.local()
+conn = None
+
+def get_session():
+    if not hasattr(thread_local, 'session'):
+        thread_local.session = req.Session()
+    return thread_local.session
+
+def scrape(scraper):
+    mod = import_module(f'unscrapulous.{scraper}')
+    mod.main(conn, get_session())
 
 def main():
     parser = argparse.ArgumentParser()
@@ -18,6 +33,7 @@ def main():
     config = toml.load(config_path)
 
     # Create table
+    global conn
     conn = psycopg2.connect(**config['postgresql_conn'])
     cur = conn.cursor()
     cur.execute("""
@@ -31,11 +47,14 @@ def main():
         )
     """)
 
-    submodules = [f for f in config['scrapers'] if config['scrapers'][f]]
-    for submodule in submodules:
-        print(f'Running {submodule}')
-        mod = import_module(f'unscrapulous.{submodule}')
-        mod.main(conn)
+    scrapers = [f for f in config['scrapers'] if config['scrapers'][f]]
+    start = time.time()
+    with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
+        executor.map(scrape, scrapers)
+    end = time.time()
+
+    print(f'Process completed in {end - start} seconds')
+
     conn.commit()
     cur.close()
     conn.close()

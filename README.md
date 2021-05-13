@@ -9,7 +9,7 @@
 ## Motivation
 Various regulatory bodies publish list of people/entities who have violated laws or regulations. The primary identifier for these records are their PANs. Banks, brokers are supposed to not provide services to these entities, identified by their PANs. Unscrapulous is a python utility which has scrapers to create a huge database of such people/entities.
 
-The database contains the following fields:
+The PostgreSQL database `unscrupulous_entities` contains the following fields:
 ```
 1. ID
 2. PAN
